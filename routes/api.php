@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/datasiswa', [UserController::class, 'ambilsiswa']);
 Route::post('/profilsiswa', [UserController::class, 'ProfilSiswa']);
+Route::post('/register', [UserController::class, 'register']);

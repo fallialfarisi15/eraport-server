@@ -12,7 +12,7 @@ class UserController extends Controller
      public function login(Request $request)
     {
 
-        $user = User::where('email', $request->username)->first();
+        $user = User::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return ["error" => "Username or password is not matched"];
@@ -41,5 +41,16 @@ class UserController extends Controller
     public function ProfilSiswa(Request $request){
         $siswa = siswa::where('id',$request->id)->get();
         return response($siswa, 201);
+    }
+    public function register(Request $request)
+    {
+        $user = new User;
+        $user->email = $request->input("email");
+        $user->name = $request->input("name");
+        $user->nip = $request->input("nip");
+        $user->kelas = $request->input("kelas");
+        $user->password = Hash::make($request->input("password"));
+        $user->save();
+        return response($user, 201);
     }
 }
