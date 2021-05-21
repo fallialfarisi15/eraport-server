@@ -22,3 +22,4 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/datasiswa', [UserController::class, 'ambilsiswa']);
 Route::post('/profilsiswa', [UserController::class, 'ProfilSiswa']);
 Route::post('/register', [UserController::class, 'register']);
+Route::post('/datauser', [UserController::class, 'ambiluser']);

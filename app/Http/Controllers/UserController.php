@@ -37,6 +37,10 @@ class UserController extends Controller
         $siswa = siswa::all();
         return response($siswa, 201);
     }
+    public function ambiluser(){
+        $user = user::all();
+        return response($user, 201);
+    }
 
     public function ProfilSiswa(Request $request){
         $siswa = siswa::where('id',$request->id)->get();
@@ -46,7 +50,7 @@ class UserController extends Controller
     {
         $user = new User;
         $user->email = $request->input("email");
-        $user->name = $request->input("name");
+        $user->name = $request->input("nama");
         $user->nip = $request->input("nip");
         $user->kelas = $request->input("kelas");
         $user->password = Hash::make($request->input("password"));
