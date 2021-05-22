@@ -37,8 +37,8 @@ class UserController extends Controller
         $siswa = siswa::all();
         return response($siswa, 201);
     }
-    public function ambiluser(){
-        $user = user::all();
+    public function ambiluser(Request $request){
+        $user = user::where('id',$request->id)->get();
         return response($user, 201);
     }
 
